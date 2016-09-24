@@ -1,0 +1,80 @@
+﻿@model IEnumerable<Models.Workflow.Process>
+
+@{
+	string strTitle =
+		string.Format("{0} {1}",
+		Resources.Areas.General.ListOf,
+		Resources.Models.Workflow.Process.EntitiesName);
+
+	ViewBag.Title = strTitle;
+}
+
+@Html.DtxBeginPanel()
+
+@Html.DtxBeginPanelHeading()
+@Html.DtxPanelTitle(strTitle)
+@Html.DtxEndPanelHeading()
+
+@Html.DtxBeginPanelBody()
+<div class="row">
+	<div class="col-sm-12 table-responsive">
+		<table class="table table-bordered table-condensed table-striped table-hover">
+			<tr>
+				<th style="width: 75px;">
+					&nbsp;
+				</th>
+				<th style="width: 75px;">
+					@Html.DisplayNameFor(model => model.IsActive)
+				</th>
+				<th style="width: 75px;">
+					@Html.DisplayNameFor(model => model.Ordering)
+				</th>
+				<th style="width: 75px;">
+					@Html.DisplayNameFor(model => model.Code)
+				</th>
+				<th>
+					@Html.DisplayNameFor(model => model.Name)
+				</th>
+			</tr>
+
+			@foreach (var item in Model)
+			{
+				string strRowStyle = string.Empty;
+
+				//string strRowStyle =
+				//	Infrastructure.Utility.GetRowStyle(item);
+
+				<tr class="@strRowStyle">
+					<td>
+						@Html.DtxActionLink(Resources.Areas.General.Details,
+							MVC.Workflow.Process.Details(item.Id),
+							Dtx.Web.Mvc.Enums.ActionLinksTypes.Details)
+
+						@Html.DtxActionLink(Resources.Areas.General.Edit,
+							MVC.Workflow.Process.Edit(item.Id),
+							Dtx.Web.Mvc.Enums.ActionLinksTypes.Edit)
+					</td>
+
+					<td>
+						@Html.DisplayFor(modelItem => item.IsActive)
+					</td>
+
+					<td>
+						@Dtx.Text.Convert.DisplayFormattedNumber(item.Ordering)
+					</td>
+
+					<td>
+						@Dtx.Text.Convert.DisplayFormattedNumber(item.Code)
+					</td>
+
+					<td>
+						@Html.DisplayFor(modelItem => item.Name)
+					</td>
+				</tr>
+			}
+		</table>
+	</div>
+</div>
+@Html.DtxEndPanelBody()
+
+@Html.DtxEndPanel()

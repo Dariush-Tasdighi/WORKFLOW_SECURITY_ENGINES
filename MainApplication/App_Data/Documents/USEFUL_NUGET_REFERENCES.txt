@@ -1,0 +1,44 @@
+﻿// Updated on 1395/06/15
+
+INSTALL-PACKAGE Microsoft.AspNet.Mvc
+INSTALL-PACKAGE Newtonsoft.Json
+
+INSTALL-PACKAGE EntityFramework
+INSTALL-PACKAGE SqlServerCompact
+INSTALL-PACKAGE EntityFramework.SqlServerCompact
+
+INSTALL-PACKAGE JQuery
+INSTALL-PACKAGE Microsoft.jQuery.Unobtrusive.Validation
+INSTALL-PACKAGE jQuery.Validation.Unobtrusive
+
+INSTALL-PACKAGE Bootstrap
+INSTALL-PACKAGE Modernizr
+
+INSTALL-PACKAGE AngularJS
+
+INSTALL-PACKAGE T4MVC
+INSTALL-PACKAGE AutoMapper
+INSTALL-PACKAGE NLog.Config
+
+INSTALL-PACKAGE TinyMCE
+INSTALL-PACKAGE DotNetZip
+INSTALL-PACKAGE CaptchaMvc.Mvc5
+INSTALL-PACKAGE SyntaxHighlighter
+INSTALL-PACKAGE DocumentFormat.OpenXml
+
+Dtx نصب فقط در پروژه
+INSTALL-PACKAGE System.Linq.Dynamic
+
+Resources نصب فقط در پروژه
+INSTALL-PACKAGE SmartStringResources
+
+
+
+ديگر نمی خواهيم
+INSTALL-PACKAGE KendoUIWeb
+INSTALL-PACKAGE jQuery.UI.Combined
+INSTALL-PACKAGE Angular.UI.Bootstrap
+INSTALL-PACKAGE jQuery.Ajax.Unobtrusive
+
+INSTALL-PACKAGE Angular.Material
+INSTALL-PACKAGE Microsoft.AspNet.Web.Optimization

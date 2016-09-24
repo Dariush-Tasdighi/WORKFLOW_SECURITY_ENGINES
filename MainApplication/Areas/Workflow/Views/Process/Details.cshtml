@@ -1,0 +1,38 @@
+﻿@model Models.Workflow.Process
+
+@{
+	string strTitle =
+		string.Format("{0} {1}",
+		Resources.Areas.General.DetailsOf,
+		Resources.Models.Workflow.Process.EntitiesName);
+
+	ViewBag.Title = strTitle;
+}
+
+@Html.DtxBeginPanel()
+
+@Html.DtxBeginPanelHeading()
+@Html.DtxPanelTitle(strTitle)
+@Html.DtxEndPanelHeading()
+
+@Html.DtxBeginPanelBody()
+@Html.DtxDisplayNameAndValueFor(model => model.Code,
+	Dtx.Web.Mvc.Enums.DisplayValueTypes.Number)
+
+@Html.DtxDisplayNameAndValueFor(model => model.Name)
+
+@Html.DtxDisplayNameAndValueFor(model => model.Description,
+	Dtx.Web.Mvc.Enums.DisplayValueTypes.Raw)
+
+@Html.Partial(MVC.Shared.Views._PartialViews.DisplayExtraProperties, Model)
+@Html.DtxEndPanelBody()
+
+@Html.DtxBeginPanelFooter()
+@Html.DtxActionLink(Resources.Areas.General.Edit,
+	MVC.Workflow.Process.Edit(Model.Id))
+
+@Html.DtxActionLink(Resources.Areas.General.BackToList,
+	MVC.Workflow.Process.Index())
+@Html.DtxEndPanelFooter()
+
+@Html.DtxEndPanel()

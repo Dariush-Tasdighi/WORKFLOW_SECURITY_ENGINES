@@ -1,0 +1,51 @@
+﻿@model Models.Workflow.Process
+
+@section JavaScriptExceptions
+{
+	@Html.Partial(MVC.Shared.Views._PartialViews.DisplayTinyMce)
+}
+
+@{
+	string strTitle =
+		string.Format("{0} {1}",
+		Resources.Areas.General.EditOf,
+		Resources.Models.Workflow.Process.EntityName);
+
+	ViewBag.Title = strTitle;
+}
+
+@using (Html.BeginForm())
+{
+	@Html.AntiForgeryToken()
+
+	@Html.HiddenFor(model => model.Id)
+
+	@Html.DtxBeginPanel()
+
+	@Html.DtxBeginPanelHeading()
+	@Html.DtxPanelTitle(strTitle)
+	@Html.DtxEndPanelHeading()
+
+	@Html.DtxBeginPanelBody()
+	@Html.DtxValidationSummary()
+
+	@Html.DtxCheckBoxFor(model => model.IsActive)
+
+	@Html.DtxLabelTextBoxFor(model => model.Ordering,
+		leftToRight: true)
+
+	@Html.DtxLabelTextBoxFor(model => model.Name)
+
+	@Html.DtxSubmit(Resources.Buttons.Save)
+	@Html.DtxEndPanelBody()
+
+	@Html.DtxBeginPanelFooter()
+	@Html.DtxActionLink(Resources.Areas.General.Details,
+		MVC.Workflow.Process.Details(Model.Id))
+
+	@Html.DtxActionLink(Resources.Areas.General.BackToList,
+		MVC.Workflow.Process.Index())
+	@Html.DtxEndPanelFooter()
+
+	@Html.DtxEndPanel()
+}

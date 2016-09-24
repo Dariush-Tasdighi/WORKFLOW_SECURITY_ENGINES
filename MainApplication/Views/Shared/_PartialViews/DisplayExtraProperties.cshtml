@@ -1,0 +1,160 @@
+﻿@model Models.Infrastructure.BaseEntity
+
+<hr />
+
+@{
+	Models.Infrastructure.BaseExtendedEntity
+		oBaseExtendedEntity = Model as Models.Infrastructure.BaseExtendedEntity;
+}
+
+@if ((oBaseExtendedEntity == null))
+{
+	return;
+}
+
+@Html.DtxBeginPanel(Dtx.Web.Mvc.Enums.PanelTypes.Info)
+
+@Html.DtxBeginPanelHeading()
+@Html.DtxPanelTitle(Resources.PanelTitles.ExtraInformation)
+@Html.DtxEndPanelHeading()
+
+@Html.DtxBeginPanelBody()
+@if (string.IsNullOrWhiteSpace(Model.MasterDataCode) == false)
+{
+	@Html.DtxDisplayNameAndValueFor(model => model.MasterDataCode,
+		Dtx.Web.Mvc.Enums.DisplayValueTypes.Number)
+}
+
+@Html.DtxDisplayNameAndValueFor(model => ((Models.Infrastructure.BaseExtendedEntity)model).Ordering,
+	Dtx.Web.Mvc.Enums.DisplayValueTypes.Number)
+
+@Html.DtxEndPanelBody()
+
+@Html.DtxEndPanel()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@*<hr />
+
+	@Html.DtxBeginPanel(Infrastructure.Enums.PanelTypes.Info)
+
+	@Html.DtxBeginPanelHeading()
+	@Html.DtxPanelTitle("اطلاعات سيستمی")
+	@Html.DtxEndPanelHeading()
+
+	@Html.DtxBeginPanelBody()
+	@if (string.IsNullOrWhiteSpace(Model.MasterDataId) == false)
+	{
+		@Html.DtxDisplayNameAndValueFor(model => model.MasterDataId,
+			Infrastructure.Enums.DisplayValueTypes.Number)
+	}
+
+	@if ((Model.InsertDateTime != null) && (Model.InsertDateTime.Value.HasValue))
+	{
+		@Html.DtxDisplayNameAndValueFor(model => model.InsertDateTime,
+			Infrastructure.Enums.DisplayValueTypes.DateTime)
+	}
+
+	@if (Model.CreatorUser != null)
+	{
+		@Html.DtxDisplayNameAndValueFor(model => model.CreatorUser.FullName,
+			caption: Resources.Models.General.CreatorUserId,
+			actionResult: MVC.Administrator.User.Details(Model.CreatorUserId.Value))
+	}
+
+	@if ((Model.UpdateDateTime != null) && (Model.UpdateDateTime.Value.HasValue))
+	{
+		@Html.DtxDisplayNameAndValueFor(model => model.UpdateDateTime,
+			Infrastructure.Enums.DisplayValueTypes.DateTime)
+	}
+
+	@if (Model.EditorUser != null)
+	{
+		@Html.DtxDisplayNameAndValueFor(model => model.EditorUser.FullName,
+			caption: Resources.Models.General.EditorUserId,
+			actionResult: MVC.Administrator.User.Details(Model.EditorUserId.Value))
+	}
+
+	@Html.DtxDisplayNameAndValueFor(model => model.Ordering,
+		Infrastructure.Enums.DisplayValueTypes.Number)
+
+	@Html.DtxDisplayNameAndValueFor(model => model.IsSystem)
+
+	@Html.DtxDisplayNameAndValueFor(model => model.IsActive)
+
+	@if (Model.ActivatorUser != null)
+	{
+		@Html.DtxDisplayNameAndValueFor(model => model.ActivatorUser.FullName,
+			caption: Resources.Models.General.ActivatorUserId,
+			actionResult: MVC.Administrator.User.Details(Model.ActivatorUserId.Value))
+
+		if ((Model.ActiveDateTime != null) && (Model.ActiveDateTime.Value.HasValue))
+		{
+			@Html.DtxDisplayNameAndValueFor(model => model.ActiveDateTime,
+			Infrastructure.Enums.DisplayValueTypes.DateTime)
+		}
+	}
+
+	@Html.DtxDisplayNameAndValueFor(model => model.IsVerified)
+
+	@if (Model.VerifierUser != null)
+	{
+		@Html.DtxDisplayNameAndValueFor(model => model.VerifierUser.FullName,
+			caption: Resources.Models.General.ActivatorUserId,
+			actionResult: MVC.Administrator.User.Details(Model.VerifierUserId.Value))
+
+		if ((Model.VerifyDateTime != null) && (Model.VerifyDateTime.Value.HasValue))
+		{
+			@Html.DtxDisplayNameAndValueFor(model => model.VerifyDateTime,
+				Infrastructure.Enums.DisplayValueTypes.DateTime)
+		}
+	}
+
+	@Html.DtxDisplayNameAndValueFor(model => model.IsDeleted)
+
+	@if (Model.RemoverUser != null)
+	{
+		@Html.DtxDisplayNameAndValueFor(model => model.RemoverUser.FullName,
+			caption: Resources.Models.General.RemoverUserId,
+			actionResult: MVC.Administrator.User.Details(Model.RemoverUserId.Value))
+
+		if ((Model.DeleteDateTime != null) && (Model.DeleteDateTime.Value.HasValue))
+		{
+			@Html.DtxDisplayNameAndValueFor(model => model.DeleteDateTime,
+				Infrastructure.Enums.DisplayValueTypes.DateTime)
+		}
+	}
+	@Html.DtxEndPanelBody()
+
+	@Html.DtxEndPanel()*@
