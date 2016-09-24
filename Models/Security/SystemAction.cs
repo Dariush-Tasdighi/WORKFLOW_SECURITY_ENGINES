@@ -18,13 +18,15 @@
 					.HasColumnAnnotation("Index",
 					new System.Data.Entity.Infrastructure.Annotations.IndexAnnotation
 						(new System.ComponentModel.DataAnnotations.Schema.IndexAttribute
-							("IX_SecurityControllerId_Name", 1) { IsUnique = true }));
+							("IX_SecurityControllerId_Name", 1)
+						{ IsUnique = true }));
 
 				Property(current => current.Name)
 					.HasColumnAnnotation("Index",
 					new System.Data.Entity.Infrastructure.Annotations.IndexAnnotation
 						(new System.ComponentModel.DataAnnotations.Schema.IndexAttribute
-							("IX_SecurityControllerId_Name", 2) { IsUnique = true }));
+							("IX_SecurityControllerId_Name", 2)
+						{ IsUnique = true }));
 				// **************************************************
 				// *** /Define Index(es) ****************************
 				// **************************************************
@@ -201,7 +203,7 @@
 			(AllowEmptyStrings = false,
 			ErrorMessageResourceType = typeof(Resources.Messages),
 			ErrorMessageResourceName = Resources.Strings.MessagesKeys.Required)]
-		public new string Name { get; set; }
+		public string Name { get; set; }
 		// **********
 
 		// **********
